@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "escola-api",
+  "version": "1.0.0",
+  "description": "API NODEJS + EXPRESS com CRUD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valeskamdev/escola-api.git"
+  },
+  "author": "Valeska Marques",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valeskamdev/escola-api/issues"
+  },
+  "homepage": "https://github.com/valeskamdev/escola-api#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
