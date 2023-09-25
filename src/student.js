@@ -53,4 +53,18 @@ function lerUm(id, res) {
   });
 }
 
-export { ler, inserir, lerUm };
+//ATUALIZAR  todos/alguns dados de um aluno
+function atualizar(id, aluno, res) {
+  const sql = 'UPDATE alunos SET ? WHERE id = ?';
+
+  connection.query(sql, [aluno, id], (err, results) => {
+    if (err) {
+      res.status(400).json(err.code);
+    } else {
+      // res.status(200).json({ 'Status': 'Aluno atualizado com sucesso!' });
+      res.status(200).json({ ...aluno, id }); // utilizando spread operator, serve para juntar dois objetos (aluno e id)
+    }
+  });
+}
+
+export { ler, inserir, lerUm, atualizar };

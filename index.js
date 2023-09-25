@@ -1,5 +1,5 @@
 import express from 'express';
-import { ler, inserir, lerUm } from './src/student.js';
+import { ler, inserir, lerUm, atualizar } from './src/student.js';
 
 const app = express();
 const port = 8080;
@@ -32,7 +32,10 @@ app.post('/alunos', (req, res) => {
 });
 
 app.patch('/alunos/:id', (req, res) => {
-  res.send('Atualizando dados de um aluno');
+  // res.send('Atualizando dados de um aluno');
+  const id = parseInt(req.params.id);
+  const aluno = req.body;
+  atualizar(id, aluno, res);
 });
 
 app.delete('/alunos/:id', (req, res) => {
