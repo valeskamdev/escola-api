@@ -67,4 +67,16 @@ function atualizar(id, aluno, res) {
   });
 }
 
-export { ler, inserir, lerUm, atualizar };
+function excluir(id, res) {
+  const sql = 'DELETE FROM alunos WHERE id = ?';
+
+  connection.query(sql, id, (err, results) => {
+    if (err) {
+      res.status(400).json(err.code);
+    } else {
+      res.status(200).json({ 'Status': 'Aluno excluído', id });
+    }
+  });
+}
+
+export { ler, inserir, lerUm, atualizar, excluir };
