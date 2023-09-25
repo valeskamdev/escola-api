@@ -2,7 +2,7 @@ import express from 'express';
 import { ler, inserir, lerUm, atualizar, excluir } from './src/student.js';
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 3306;
 
 // adicionando suporte ao formato json
 app.use(express.json());
@@ -45,5 +45,5 @@ app.delete('/alunos/:id', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor rodando no endereço http://localhost:${port}`);
+  console.log(`Servidor rodando na porta ${port}`);
 });
