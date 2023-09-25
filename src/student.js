@@ -35,4 +35,22 @@ function inserir(aluno, res) {
   });
 }
 
-export { ler, inserir };
+// LER UM ANLUNOS
+function lerUm(id, res) {
+  const sql = 'SELECT * FROM alunos WHERE id = ?';
+
+  connection.query(sql, id, (err, results) => {
+    if (results === 0) {
+      res.status(204).end();
+      return;
+    }
+
+    if (err) {
+      res.status(400).json(err.code);
+    } else {
+      res.status(200).json(results[0]);
+    }
+  });
+}
+
+export { ler, inserir, lerUm };

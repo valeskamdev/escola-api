@@ -1,5 +1,5 @@
 import express from 'express';
-import { ler, inserir } from './src/student.js';
+import { ler, inserir, lerUm } from './src/student.js';
 
 const app = express();
 const port = 8080;
@@ -8,7 +8,7 @@ const port = 8080;
 app.use(express.json());
 
 // adicionandp suporte a dados vindos de formulários
-app.use(express.urlencoded({ extended : true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.send('Raiz da API NodeJs + Express + MySQL');
@@ -20,13 +20,15 @@ app.get('/alunos', (req, res) => {
 });
 
 app.get('/alunos/:id', (req, res) => {
-  res.send('dados de um aluno');
+  // res.send('dados de um aluno');
+  const id = parseInt(req.params.id);
+  lerUm(id, res);
 });
 
 app.post('/alunos', (req, res) => {
   // res.send('Inserindo dados de um aluno');
   const novoAluno = req.body;
-  inserir(novoAluno, res)
+  inserir(novoAluno, res);
 });
 
 app.patch('/alunos/:id', (req, res) => {
