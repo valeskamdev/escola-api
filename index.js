@@ -11,7 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.send('Raiz da API NodeJs + Express + MySQL');
+  // res.send('Raiz da API NodeJs + Express + MySQL');
+  res.redirect("https://documenter.getpostman.com/view/29885679/2s9YJZ34cn");
 });
 
 app.get('/alunos', (req, res) => {
