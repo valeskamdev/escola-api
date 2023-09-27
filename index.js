@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors'; // importando o cors, para permitir que o front-end acesse o back-end (API)
 import { ler, inserir, lerUm, atualizar, excluir } from './src/student.js';
 
 const app = express();
@@ -9,6 +10,9 @@ app.use(express.json());
 
 // adicionandp suporte a dados vindos de formulários
 app.use(express.urlencoded({ extended: true }));
+
+// permitindo acesso aos dados da API
+app.use(cors())
 
 app.get('/', (req, res) => {
   // res.send('Raiz da API NodeJs + Express + MySQL');
