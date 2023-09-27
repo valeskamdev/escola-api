@@ -2,7 +2,7 @@ import express from 'express';
 import { ler, inserir, lerUm, atualizar, excluir } from './src/student.js';
 
 const app = express();
-const port = process.env.PORT || 3306;
+const port = process.env.PORT || 3306; //permitindo que o servidor aponte a melhor porta ou então, usamos a porta 3306
 
 // adicionando suporte ao formato json
 app.use(express.json());
